@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21754" systemVersion="22E261" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Task" representedClassName="Task" syncable="YES">
+        <attribute name="task_created_date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="task_end_date" optional="YES" attributeType="Date" usesScalarValueType="NO">
+            <userInfo>
+                <entry key="dateFormat" value="dd-MM-yyyy hh:mm a"/>
+            </userInfo>
+        </attribute>
+        <attribute name="task_id" optional="YES" attributeType="String"/>
+        <attribute name="task_status" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="task_title" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="ToDolist" representedClassName="ToDolist" parentEntity="Task" syncable="YES">
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Users" inverseName="todolist" inverseEntity="Users"/>
+        <userInfo>
+            <entry key="relatedByAttribute" value="task_id"/>
+        </userInfo>
+    </entity>
+    <entity name="Users" representedClassName="Users" syncable="YES">
+        <attribute name="email" optional="YES" attributeType="String"/>
+        <attribute name="is_active" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="password" optional="YES" attributeType="String"/>
+        <attribute name="uuid" optional="YES" attributeType="String"/>
+        <relationship name="todolist" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ToDolist" inverseName="user" inverseEntity="ToDolist">
+            <userInfo>
+                <entry key="relatedByAttribute" value="task_id"/>
+            </userInfo>
+        </relationship>
+        <userInfo>
+            <entry key="relatedByAttribute" value="uuid"/>
+        </userInfo>
+    </entity>
+</model>

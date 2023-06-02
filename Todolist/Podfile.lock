@@ -1,0 +1,31 @@
+PODS:
+  - MagicalRecord (2.3.3):
+    - MagicalRecord/Core (= 2.3.3)
+  - MagicalRecord/Core (2.3.3)
+  - SwiftGen (6.6.2)
+
+DEPENDENCIES:
+  - MagicalRecord (from `https://github.com/hardikdevios/MagicalRecord.git`, tag `2.3.11`)
+  - SwiftGen
+
+SPEC REPOS:
+  trunk:
+    - SwiftGen
+
+EXTERNAL SOURCES:
+  MagicalRecord:
+    :git: https://github.com/hardikdevios/MagicalRecord.git
+    :tag: 2.3.11
+
+CHECKOUT OPTIONS:
+  MagicalRecord:
+    :git: https://github.com/hardikdevios/MagicalRecord.git
+    :tag: 2.3.11
+
+SPEC CHECKSUMS:
+  MagicalRecord: e3dfdee87c234c6d460dbd5d8a32e3cb4de223aa
+  SwiftGen: 1366a7f71aeef49954ca5a63ba4bef6b0f24138c
+
+PODFILE CHECKSUM: 90c495f204091a42ca8543811a2b46c6cfaf6689
+
+COCOAPODS: 1.11.3
