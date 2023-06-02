@@ -31,7 +31,7 @@ enum EmptyDataSetType {
             return NSAttributedString(string: title,
                                       attributes: [NSAttributedString.Key.font: AppFont.medium.size(16), NSAttributedString.Key.foregroundColor: Asset.Colors.black.color])
         default:
-            return NSAttributedString(string: "No data Available",
+            return NSAttributedString(string: "No data available",
                                       attributes: [NSAttributedString.Key.font: AppFont.bold.size(fontSize), NSAttributedString.Key.foregroundColor: UIColor.black])
         }
     }
@@ -50,7 +50,7 @@ enum EmptyDataSetType {
                                       attributes: [NSAttributedString.Key.font: AppFont.light.size(15), NSAttributedString.Key.foregroundColor: UIColor.lightGray])
 
         default:
-            return NSAttributedString(string: "No data Available",
+            return NSAttributedString(string: "No data available",
                                       attributes: [NSAttributedString.Key.font: AppFont.regular.size(fontSize - 2), NSAttributedString.Key.foregroundColor: UIColor.lightGray])
         }
     }

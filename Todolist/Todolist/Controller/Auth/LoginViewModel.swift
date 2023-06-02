@@ -14,7 +14,7 @@ protocol LoginViewModelInputs {
     func login()
 }
 
-protocol LoginViewModelOuptput: ActivityIndicatorProtocol {
+protocol LoginViewModelOuptput {
     var onResult: PublishSubject<Result<Void, ErrorHandler>> { get set }
     var request: Login.Request { get set }
 }
@@ -25,8 +25,6 @@ protocol LoginViewModelOuptputType {
 }
 
 class LoginViewModel: LoginViewModelInputs, LoginViewModelOuptput, LoginViewModelOuptputType {
-    var is_animating: BehaviorRelay<Bool> = BehaviorRelay(value: false)
-
     var input: LoginViewModelInputs { get { return self } set {} }
     var output: LoginViewModelOuptput { get { return self } set {} }
 
@@ -39,7 +37,6 @@ class LoginViewModel: LoginViewModelInputs, LoginViewModelOuptput, LoginViewMode
         guard validate() else {
             return
         }
-        is_animating.accept(true)
         if DBManager.shared.checkUserExist(email: request.email.value, password: request.password.value) {
             onResult.onNext(.success(()))
         } else {

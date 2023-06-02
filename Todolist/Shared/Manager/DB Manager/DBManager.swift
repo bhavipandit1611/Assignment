@@ -17,6 +17,8 @@ extension DBManager: DBMangerLogic {
 
     func checkUserExist(email: String, password: String) -> Bool {
         if let objUser = Users.mr_findFirst(with: NSPredicate(format: "email = %@ && password = %@", email, password), in: Config.db_context) {
+            objUser.is_active = true
+            Config.db_context.mr_saveToPersistentStoreAndWait()
             return true
         }
         return false

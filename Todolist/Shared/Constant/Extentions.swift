@@ -56,6 +56,11 @@ extension UIViewController {
     @objc open func backClick(_ sender: AnyObject?) {
         navigationController?.popViewController(animated: true)
     }
+
+    var topbarHeight: CGFloat {
+        return (UIApplication.shared.keyWindow?.windowScene?.statusBarManager?.statusBarFrame.height ?? 20) +
+            (navigationController?.navigationBar.frame.height ?? 44)
+    }
 }
 
 extension String {
@@ -133,40 +138,10 @@ extension String {
     static let passwordNotMatch = NSLocalizedString("New password and confirm password does not match", comment: "")
 }
 
-extension UIView {
-    func vs_setBottomShadow() {
-        layer.shadowColor = UIColor.black.cgColor
-        layer.masksToBounds = false
-        layer.shadowOffset = CGSize(width: 0.0, height: 1)
-        layer.shadowOpacity = 0.1
-        layer.shadowRadius = 1.0
-    }
-
-    func vs_setTopShadow() {
-        layer.shadowColor = UIColor.black.cgColor
-        layer.masksToBounds = false
-        layer.shadowOffset = CGSize(width: 0.0, height: -1)
-        layer.shadowOpacity = 0.1
-        layer.shadowRadius = 1.0
-    }
-
-    func addBorder() {
-        layer.cornerRadius = 3
-        layer.masksToBounds = true
-        layer.borderWidth = 1.0
-        layer.borderColor = UIColor.lightGray.cgColor // TODO: Need to ADD
-        backgroundColor = UIColor.clear
-    }
-
-    func setGradientBackground(colorOne: UIColor, colorTwo: UIColor) {
-        let gradientlayer = CAGradientLayer()
-        gradientlayer.frame = bounds
-        gradientlayer.colors = [colorOne.cgColor, colorTwo.cgColor]
-        gradientlayer.locations = [0, 1]
-        gradientlayer.startPoint = CGPoint(x: 1.0, y: 0.0)
-        gradientlayer.endPoint = CGPoint(x: 0.0, y: 0.0)
-
-        layer.insertSublayer(gradientlayer, at: 0)
+extension UIButton {
+    func setSelected(isSelected: Bool) {
+        let image: UIImage = isSelected ? Asset.Assets.icChecked.image : Asset.Assets.icUncheck.image
+        setImage(image, for: .normal)
     }
 }
 

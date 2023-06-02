@@ -24,8 +24,11 @@ internal enum Asset {
   internal enum Assets {
     internal static let icAdd = ImageAsset(name: "ic_add")
     internal static let icArrow = ImageAsset(name: "ic_arrow")
+    internal static let icAscendingSort = ImageAsset(name: "ic_ascending_sort")
     internal static let icChecked = ImageAsset(name: "ic_checked")
     internal static let icClose = ImageAsset(name: "ic_close")
+    internal static let icDatetime = ImageAsset(name: "ic_datetime")
+    internal static let icDecendingSort = ImageAsset(name: "ic_decending_sort")
     internal static let icUncheck = ImageAsset(name: "ic_uncheck")
   }
   internal enum Colors {

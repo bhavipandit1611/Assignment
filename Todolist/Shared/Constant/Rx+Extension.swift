@@ -7,7 +7,7 @@ extension UIButton {
     public func vs_setDisableWithAlpha(_ isDisable: Bool) {
         if isDisable {
             isEnabled = false
-            alpha = 0.9
+            alpha = 0.99
         } else {
             isEnabled = true
             alpha = 1.0
@@ -133,7 +133,6 @@ extension Reactive where Base: BaseTableController {
         }.asObserver()
     }
 }
-
 
 extension Reactive where Base: UITextField {
     /// Transforms control property of type `String?` into control property of type `String`.

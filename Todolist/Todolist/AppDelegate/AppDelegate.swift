@@ -52,7 +52,7 @@ extension AppDelegate {
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black, .font: AppFont.medium.size(18, family_Name: roboto)]
 
         // Set navigation bar item tint color
-        UIBarButtonItem.appearance().tintColor = .white
+        UIBarButtonItem.appearance().tintColor = .black
         UINavigationBar.appearance().shadowImage = UIImage()
         UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
         UINavigationBar.appearance().isTranslucent = true

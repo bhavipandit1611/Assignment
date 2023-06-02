@@ -11,14 +11,17 @@ class TodoListViewC: BaseTableController {
     @IBOutlet var btnAdd: ThemeButton!
     @IBOutlet var bottomConstraint: NSLayoutConstraint!
     @IBOutlet var contentView: UIView!
+    let barBtnItem = UIBarButtonItem(image: Asset.Assets.icAscendingSort.image, style: .plain, target: nil, action: nil)
+
     var height: CGFloat = 0.0
-    var navH: CGFloat = 44.0
-    let padding: CGFloat = 40.0
+    var navH: CGFloat = 0.0
+    let padding: CGFloat = 60.0
+    var ascending: Bool = true
+
+    var viewModel: TodoTaskViewModelOuptputType = TodoTaskViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
         setUpText()
         setUpViews()
         bindData()
@@ -31,9 +34,8 @@ class TodoListViewC: BaseTableController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        tableView.addObserver(self, forKeyPath: "contentSize", options: .new, context: nil)
-
         super.viewWillAppear(animated)
+        tableView.addObserver(self, forKeyPath: "contentSize", options: .new, context: nil)
     }
 
     // MARK: - Navigation
@@ -43,6 +45,8 @@ class TodoListViewC: BaseTableController {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
         if let controller = segue.destination as? AddTaskViewC {
+            controller.viewModel.output.objTask = sender as? ToDolist
+            controller.operation = (sender is ToDolist) ? .update : .add
             controller.taskAdded.subscribe(onNext: { [weak self] _ in
                 self?.performFetch()
                 self?.tableView.reloadData()
@@ -57,8 +61,9 @@ extension TodoListViewC: BasicSetupType {
     }
 
     func setUpViews() {
-//        navigationItem.leftBarButtonItem = UIBarButtonItem(image: Asset.Shared.close.image, style: .plain, target: nil, action: nil)
-        navH = self.navigationController?.navigationBar.frame.height ?? 50
+        navigationItem.rightBarButtonItem = barBtnItem
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: nil, action: nil)
+        navH = topbarHeight
         btnAdd.type = .with(Asset.Assets.icAdd.image)
         contentView.layer.cornerRadius = 10
         contentView.layer.borderColor = UIColor.gray.cgColor
@@ -72,11 +77,28 @@ extension TodoListViewC: BasicSetupType {
     }
 
     func bindData() {
+        emptyDataSetHandler?.setUpEmptyData()
         navigationItem.leftBarButtonItem?.rx.tap.subscribe(onNext: { [weak self] _ in
-            self?.cancelClick(nil)
+            guard let self = self else { return }
+            self.logoutPopup()
         }).disposed(by: disposeBag)
 
-//        interactor?.is_animating.bind(to: rx.hk_isEmptyDataSetHidden).disposed(by: disposeBag)
+        navigationItem.rightBarButtonItem?.rx.tap.subscribe(onNext: { [weak self] _ in
+            guard let self = self else { return }
+            if self.ascending {
+                barBtnItem.image = Asset.Assets.icDecendingSort.image
+                self.ascending = false
+            } else {
+                barBtnItem.image = Asset.Assets.icAscendingSort.image
+                self.ascending = true
+            }
+            sortData(ascending: self.ascending)
+
+        }).disposed(by: disposeBag)
+
+        viewModel.output.onLogout.bind(onNext: { _ in
+            UIApplication.setRootView(StoryboardScene.Main.initialScene.instantiate())
+        }).disposed(by: disposeBag)
 
         btnAdd.rx.tap.subscribe(onNext: { [weak self] _ in
             guard let self = self else { return }
@@ -87,6 +109,24 @@ extension TodoListViewC: BasicSetupType {
     func setupAccessibility() {
         tableView.accessibilityIdentifier = "tbl_task"
     }
+
+    func sortData(ascending: Bool) {
+        fetchController?.fetchRequest.sortDescriptors = [NSSortDescriptor(key: TodoTask.SortType.task_end_date.field, ascending: ascending)]
+        performFetch()
+        tableView.reloadData()
+    }
+
+    func logoutPopup() {
+        let alertController = UIAlertController(title: "Logout", message: "Are you sure you want to logout?", preferredStyle: .alert)
+        let LogoutAction = UIAlertAction(title: "Logout", style: .destructive) { _ in
+            self.viewModel.input.logout()
+        }
+
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alertController.addAction(LogoutAction)
+        alertController.addAction(cancelAction)
+        present(alertController, animated: true, completion: nil)
+    }
 }
 
 extension TodoListViewC: UITableViewDataSource {
@@ -95,9 +135,9 @@ extension TodoListViewC: UITableViewDataSource {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.alwaysBounceVertical = false
+        tableView.alwaysBounceHorizontal = false
         tableView.tableFooterView = UIView()
-        tableView.estimatedRowHeight = 50
-        tableView.hk_setEmptySepratorFooter()
+        tableView.estimatedRowHeight = 66
         registerCell()
         fetchData()
     }
@@ -116,11 +156,10 @@ extension TodoListViewC: UITableViewDataSource {
         let task = fetchController?.safeObject(at: indexPath) as? ToDolist
         cell.config(task: task)
         cell.btnCheck.rx.tap.asDriver().drive(onNext: { [weak self] _ in
-            // TODO: Complete Task
+            self?.viewModel.input.complete(task: task)
         }).disposed(by: cell.bag)
-
         cell.btnDelete.rx.tap.asDriver().drive(onNext: { [weak self] _ in
-            // TODO: Delete
+            self?.displayConfirmation(task: task)
         }).disposed(by: cell.bag)
 
         return cell
@@ -129,23 +168,40 @@ extension TodoListViewC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.tableView.deselectRow(at: indexPath, animated: false)
         let task = fetchController?.safeObject(at: indexPath) as? ToDolist
-        // TODO: Update Task
-//        if navigateToDetailWithSegue(patient: patient) {
-//            perform(segue: StoryboardSegue.Main.seguePatientDetail, sender: fetchController?.safeObject(at: indexPath))
-//        }
+        if task?.status != .completed {
+            perform(segue: StoryboardSegue.Tasks.segueAddTask, sender: task)
+        }
     }
 
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey: Any]?, context: UnsafeMutableRawPointer?) {
         if keyPath == "contentSize", object is UITableView, let newValue = change?[.newKey], let newSize = newValue as? CGSize {
-            if newSize.height > height {
-                bottomConstraint.constant = 20
+            print("Observable ::: \(newSize.height)  > \(height)")
+            if let isEmpty = fetchController?.fetchedObjects?.isEmpty, isEmpty {
+                emptyDataSetHandler?.setUpEmptyData()
+                bottomConstraint.constant = 70
             } else {
-                bottomConstraint.constant = height - newSize.height
+                if newSize.height > height {
+                    bottomConstraint.constant = 70
+                } else {
+                    bottomConstraint.constant = height - newSize.height
+                }
             }
         }
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
+    }
+
+    func displayConfirmation(task: ToDolist?) {
+        guard let objTask = task, let name = objTask.task_title else { return }
+
+        let title = "Warning"
+        let message = "Do you want to delete \"\(name)\", this action can't be undone."
+
+        let alert = CustomAlertController(title: title, message: message) {
+            self.viewModel.input.deleteTask(task: task)
+        }
+        present(alert, animated: true)
     }
 }

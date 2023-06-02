@@ -30,9 +30,15 @@ class TaskCell: UITableViewCell, BasicSetupType {
     func setUpText() {}
 
     func setUpViews() {
-        btnCheck.setImage(Asset.Assets.icUncheck.image, for: .normal)
-        btnCheck.setImage(Asset.Assets.icChecked.image, for: .selected)
+        btnCheck.setTitle("", for: .normal)
+        btnCheck.setImage(Asset.Assets.icChecked.image, for: .highlighted)
         btnDelete.setImage(Asset.Assets.icClose.image, for: .normal)
+        btnDelete.setTitle("", for: .normal)
+        lblTime.font = AppFont.regular.size(12)
+        lblTitle.font = AppFont.regular.size(16)
+        lblSubTitle.font = AppFont.regular.size(12)
+        lblSubTitle.textColor = Asset.Colors.subtitle.color
+        lblTime.textColor = Asset.Colors.time.color
     }
 
     override func layoutSubviews() {
@@ -45,10 +51,12 @@ class TaskCell: UITableViewCell, BasicSetupType {
         }
 
         lblTitle.attributedText = (task.status == .completed) ? task.task_title?.strikeThrough() : NSAttributedString(string: task.task_title ?? "")
-        lblSubTitle.isHidden = task.status != .exceed
-        lblSubTitle.text = task.status.title
-        lblTime.text = task.task_end_date?.toString(format: DateFormat.time_ampm)
-        btnCheck.isSelected = (task.status == .completed)
+        lblTitle.textColor = (task.status == .completed) ? Asset.Colors.title.color : task.isExceed ? Asset.Colors.red.color : Asset.Colors.title.color
+        lblSubTitle.isHidden = (task.status == .completed) ? true : !task.isExceed
+        lblSubTitle.text = task.isExceed ? TaskStatus.exceed.title : ""
+        lblTime.text = task.task_end_date?.toString(format: DateFormat.month_date_time_ampm_format)
+        btnCheck.setSelected(isSelected: task.status == .completed)
+        btnCheck.isHighlighted = (task.status == .completed)
         btnCheck.isEnabled = (task.status != .completed)
     }
 

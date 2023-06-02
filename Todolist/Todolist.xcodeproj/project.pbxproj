@@ -28,8 +28,6 @@
 		3F26E46E2A288A840062216F /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F26E46B2A288A840062216F /* Images.swift */; };
 		3F26E4712A288ACC0062216F /* BaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8F37DC2A2866FB00842786 /* BaseController.swift */; };
 		3F26E4732A288BE00062216F /* EmptyDataSet_Swift in Frameworks */ = {isa = PBXBuildFile; productRef = 3F26E4722A288BE00062216F /* EmptyDataSet_Swift */; };
-		3F26E4752A288BEA0062216F /* FittedSheets in Frameworks */ = {isa = PBXBuildFile; productRef = 3F26E4742A288BEA0062216F /* FittedSheets */; };
-		3F26E4772A288BF60062216F /* PullToRefreshKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3F26E4762A288BF60062216F /* PullToRefreshKit */; };
 		3F26E4782A288D2B0062216F /* BaseTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8F37DB2A2866FB00842786 /* BaseTableController.swift */; };
 		3F26E47F2A2890820062216F /* Storyboard_scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F26E47D2A2890820062216F /* Storyboard_scene.swift */; };
 		3F26E4802A2890820062216F /* Storyboard_segue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F26E47E2A2890820062216F /* Storyboard_segue.swift */; };
@@ -92,10 +90,10 @@
 		3F8F38432A28770D00842786 /* NVActivityIndicatorViewExtended in Frameworks */ = {isa = PBXBuildFile; productRef = 3F8F38422A28770D00842786 /* NVActivityIndicatorViewExtended */; };
 		3F8F38462A28773D00842786 /* DateHelper in Frameworks */ = {isa = PBXBuildFile; productRef = 3F8F38452A28773D00842786 /* DateHelper */; };
 		3F8F38492A28774A00842786 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 3F8F38482A28774A00842786 /* SwiftyJSON */; };
-		3F8F384E2A287B8B00842786 /* FittedSheets in Resources */ = {isa = PBXBuildFile; fileRef = 3F8F384B2A287B8B00842786 /* FittedSheets */; };
-		3F8F384F2A287B8B00842786 /* PullToRefreshKit in Resources */ = {isa = PBXBuildFile; fileRef = 3F8F384C2A287B8B00842786 /* PullToRefreshKit */; };
 		3F8F38502A287B8B00842786 /* EmptyDataSet-Swift in Resources */ = {isa = PBXBuildFile; fileRef = 3F8F384D2A287B8B00842786 /* EmptyDataSet-Swift */; };
 		3F8F38582A287C2F00842786 /* Todolist.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3F8F38562A287C2F00842786 /* Todolist.xcdatamodeld */; };
+		3F960E832A29D7C800E32F11 /* CustomAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F960E812A29D7C800E32F11 /* CustomAlertController.swift */; };
+		3F960E842A29D7C800E32F11 /* CustomAlertController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F960E822A29D7C800E32F11 /* CustomAlertController.xib */; };
 		9205FEB4816497C91DF42B39 /* Pods_Todolist.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4035CE51FA728BD92AAB0309 /* Pods_Todolist.framework */; };
 /* End PBXBuildFile section */
 
@@ -178,10 +176,10 @@
 		3F8F38022A2866FB00842786 /* Rubik-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Regular.ttf"; sourceTree = "<group>"; };
 		3F8F38032A2866FB00842786 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		3F8F38282A286A4500842786 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
-		3F8F384B2A287B8B00842786 /* FittedSheets */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = FittedSheets; sourceTree = "<group>"; };
-		3F8F384C2A287B8B00842786 /* PullToRefreshKit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = PullToRefreshKit; sourceTree = "<group>"; };
 		3F8F384D2A287B8B00842786 /* EmptyDataSet-Swift */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = "EmptyDataSet-Swift"; sourceTree = "<group>"; };
 		3F8F38572A287C2F00842786 /* Todolist.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Todolist.xcdatamodel; sourceTree = "<group>"; };
+		3F960E812A29D7C800E32F11 /* CustomAlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAlertController.swift; sourceTree = "<group>"; };
+		3F960E822A29D7C800E32F11 /* CustomAlertController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomAlertController.xib; sourceTree = "<group>"; };
 		4035CE51FA728BD92AAB0309 /* Pods_Todolist.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Todolist.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5883BDE36D027DD524ECBCD7 /* Pods-TodolistTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodolistTests.debug.xcconfig"; path = "Target Support Files/Pods-TodolistTests/Pods-TodolistTests.debug.xcconfig"; sourceTree = "<group>"; };
 		6545960D76A8C7F2F23427E9 /* Pods-TodolistTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodolistTests.release.xcconfig"; path = "Target Support Files/Pods-TodolistTests/Pods-TodolistTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -199,8 +197,6 @@
 			files = (
 				3F8F38432A28770D00842786 /* NVActivityIndicatorViewExtended in Frameworks */,
 				3F8F38412A28770D00842786 /* NVActivityIndicatorView in Frameworks */,
-				3F26E4752A288BEA0062216F /* FittedSheets in Frameworks */,
-				3F26E4772A288BF60062216F /* PullToRefreshKit in Frameworks */,
 				3F8F38372A28768400842786 /* RxKeyboard in Frameworks */,
 				3F8F38492A28774A00842786 /* SwiftyJSON in Frameworks */,
 				3F8F38302A28765100842786 /* RxRelay in Frameworks */,
@@ -519,6 +515,7 @@
 		3F8F37F62A2866FB00842786 /* Customization */ = {
 			isa = PBXGroup;
 			children = (
+				3F960E802A29D7C800E32F11 /* Alert */,
 				3F8F37F72A2866FB00842786 /* Navigation & Tab */,
 			);
 			path = Customization;
@@ -559,11 +556,18 @@
 		3F8F384A2A287B8B00842786 /* Packages */ = {
 			isa = PBXGroup;
 			children = (
-				3F8F384B2A287B8B00842786 /* FittedSheets */,
-				3F8F384C2A287B8B00842786 /* PullToRefreshKit */,
 				3F8F384D2A287B8B00842786 /* EmptyDataSet-Swift */,
 			);
 			path = Packages;
+			sourceTree = "<group>";
+		};
+		3F960E802A29D7C800E32F11 /* Alert */ = {
+			isa = PBXGroup;
+			children = (
+				3F960E812A29D7C800E32F11 /* CustomAlertController.swift */,
+				3F960E822A29D7C800E32F11 /* CustomAlertController.xib */,
+			);
+			path = Alert;
 			sourceTree = "<group>";
 		};
 		8C744A751C14835B6A57531E /* Frameworks */ = {
@@ -606,8 +610,6 @@
 				3F8F38452A28773D00842786 /* DateHelper */,
 				3F8F38482A28774A00842786 /* SwiftyJSON */,
 				3F26E4722A288BE00062216F /* EmptyDataSet_Swift */,
-				3F26E4742A288BEA0062216F /* FittedSheets */,
-				3F26E4762A288BF60062216F /* PullToRefreshKit */,
 				3F26E4922A28B5970062216F /* IQKeyboardManagerSwift */,
 			);
 			productName = Todolist;
@@ -716,13 +718,11 @@
 			files = (
 				3F8F381E2A2866FB00842786 /* Roboto-Medium.ttf in Resources */,
 				3F26E46A2A2884140062216F /* Tasks.storyboard in Resources */,
-				3F8F384F2A287B8B00842786 /* PullToRefreshKit in Resources */,
 				3F8F38212A2866FB00842786 /* Roboto-Regular.ttf in Resources */,
 				3F26E4662A2881630062216F /* swiftgen.yml in Resources */,
 				3F8F38292A286A4500842786 /* Colors.xcassets in Resources */,
 				3F8F38272A2866FB00842786 /* Roboto-Bold.ttf in Resources */,
 				3F8F38202A2866FB00842786 /* Rubik-Bold.ttf in Resources */,
-				3F8F384E2A287B8B00842786 /* FittedSheets in Resources */,
 				3F8F37D02A28668F00842786 /* Main.storyboard in Resources */,
 				3F26E49C2A28C6CB0062216F /* TaskCell.xib in Resources */,
 				3F8F381F2A2866FB00842786 /* Roboto-Light.ttf in Resources */,
@@ -730,6 +730,7 @@
 				3F8F38502A287B8B00842786 /* EmptyDataSet-Swift in Resources */,
 				3F8F38262A2866FB00842786 /* Rubik-Regular.ttf in Resources */,
 				3F8F38232A2866FB00842786 /* Rubik-Medium.ttf in Resources */,
+				3F960E842A29D7C800E32F11 /* CustomAlertController.xib in Resources */,
 				3F8F37D42A2866ED00842786 /* Assets.xcassets in Resources */,
 				3F8F37CF2A28668F00842786 /* LaunchScreen.storyboard in Resources */,
 			);
@@ -905,6 +906,7 @@
 				3F26E48B2A2897C90062216F /* ToDolist.swift in Sources */,
 				3F8F381A2A2866FB00842786 /* Protocols.swift in Sources */,
 				3F8F37CD2A28668F00842786 /* AppDelegate.swift in Sources */,
+				3F960E832A29D7C800E32F11 /* CustomAlertController.swift in Sources */,
 				3F8F38252A2866FB00842786 /* Fonts.swift in Sources */,
 				3F8F380F2A2866FB00842786 /* Extentions.swift in Sources */,
 				3F8F38132A2866FB00842786 /* DateFormat.swift in Sources */,
@@ -1380,14 +1382,6 @@
 		3F26E4722A288BE00062216F /* EmptyDataSet_Swift */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = EmptyDataSet_Swift;
-		};
-		3F26E4742A288BEA0062216F /* FittedSheets */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = FittedSheets;
-		};
-		3F26E4762A288BF60062216F /* PullToRefreshKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = PullToRefreshKit;
 		};
 		3F26E4922A28B5970062216F /* IQKeyboardManagerSwift */ = {
 			isa = XCSwiftPackageProductDependency;

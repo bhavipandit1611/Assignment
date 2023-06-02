@@ -57,16 +57,6 @@ extension LoginViewC: BasicSetupType {
     }
 
     func bindData() {
-        viewModel.output.is_animating
-            .asDriver()
-            .drive(btnLogin.rx.hk_animating)
-            .disposed(by: disposeBag)
-
-        viewModel.output.is_animating
-            .asDriver()
-            .drive(view.rx.hk_userInteraction)
-            .disposed(by: disposeBag)
-
         txtEmail
             .rx.text.orEmpty
             .bind(to: viewModel.output.request.email)

@@ -21,6 +21,7 @@ class AddTaskViewC: BaseController {
     @IBOutlet var datepicker: UIDatePicker!
     let taskAdded = PublishSubject<Bool>()
     var operation: Operation = .add
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -28,16 +29,6 @@ class AddTaskViewC: BaseController {
         setUpViews()
         bindData()
     }
-
-    /*
-     // MARK: - Navigation
-
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-         // Get the new view controller using segue.destination.
-         // Pass the selected object to the new view controller.
-     }
-     */
 }
 
 extension AddTaskViewC: BasicSetupType {
@@ -46,8 +37,6 @@ extension AddTaskViewC: BasicSetupType {
         let btnStr = (operation == .add) ? "ADD" : "UPDATE"
         btnAdd.setTitle(btnStr, for: .normal)
         btnCancel.setTitle("CANCEL", for: .normal)
-        let postfix = Date().toString(format: DateFormat.ampm)
-        btnDatePicker.setTitle(postfix, for: .normal)
 
         txtTaskTile.titleLabelText = "Task Title"
         txtDateTime.titleLabelText = "DateTime"
@@ -57,7 +46,10 @@ extension AddTaskViewC: BasicSetupType {
     func setUpViews() {
         btnAdd.type = .theme_color(false, 14)
         btnCancel.type = .theme_color(true, 14)
-        btnDatePicker.type = .textWith(Asset.Assets.icArrow.image)
+        btnDatePicker.type = .textWith(Asset.Assets.icDatetime.image)
+        btnDatePicker.setTitle("", for: .normal)
+        txtDateTime.isEnabled = false
+        datepicker.minimumDate = Date()
 
         themeSetUp()
     }
@@ -79,16 +71,6 @@ extension AddTaskViewC: BasicSetupType {
     }
 
     func bindData() {
-        viewModel.output.is_animating
-            .asDriver()
-            .drive(btnAdd.rx.hk_animating)
-            .disposed(by: disposeBag)
-
-        viewModel.output.is_animating
-            .asDriver()
-            .drive(view.rx.hk_userInteraction)
-            .disposed(by: disposeBag)
-
         txtTaskTile
             .rx.text.orEmpty
             .bind(to: viewModel.output.request.taskTitle)
@@ -104,16 +86,19 @@ extension AddTaskViewC: BasicSetupType {
             switch result {
             case .success:
                 taskAdded.onNext(true)
-                self.backClick(nil)                
+                self.backClick(nil)
             case let .failure(err):
-                // TODO: Display Alert
                 self.alertError(error: err)
             }
         }).disposed(by: disposeBag)
 
         btnAdd.rx.tap.subscribe(onNext: { [weak self] _ in
             guard let self = self else { return }
-            viewModel.input.AddTask()
+            if operation == .add {
+                viewModel.input.addTask()
+            } else {
+                viewModel.input.updateTask()
+            }
         }).disposed(by: disposeBag)
 
         btnDatePicker.rx.tap.subscribe(onNext: { [weak self] _ in
@@ -127,25 +112,33 @@ extension AddTaskViewC: BasicSetupType {
         }).disposed(by: disposeBag)
 
         Observable
-            .combineLatest(txtDateTime
-                .rx.text.orEmpty, txtTaskTile.rx.text.orEmpty)
+            .combineLatest(viewModel.output.request.taskTitle, viewModel.output.request.dateTime)
             .map({ $0.isEmpty || $1.isEmpty })
             .bind(to: btnAdd.rx.hk_disableWithAlpha)
             .disposed(by: disposeBag)
 
         datepicker?.addTarget(self, action: #selector(handleDateSelection), for: .valueChanged)
+
+        if operation == .update {
+            setupData()
+        }
     }
 }
 
 extension AddTaskViewC {
     @objc func handleDateSelection() {
         txtDateTime.text = datepicker.date.toString(format: DateFormat.half_month_date_time_ampm_format)
-        let postfix = datepicker.date.toString(format: DateFormat.ampm)
-        btnDatePicker.setTitle(postfix, for: .normal)
         if let val = datepicker.date.toString(format: DateFormat.month_date_time_ampm_format) {
-            viewModel.output.request.date_Time.accept(val)
+            viewModel.output.request.dateTime.accept(val)
         }
         view.endEditing(true)
-        dateView.isHidden = true
+    }
+
+    func setupData() {
+        guard let objTask = viewModel.output.objTask, let title = objTask.task_title, let dateVal = objTask.task_end_date?.toString(format: DateFormat.month_date_time_ampm_format) else { return }
+        txtTaskTile.text = title
+        txtDateTime.text = dateVal
+        viewModel.output.request.dateTime.accept(dateVal)
+        viewModel.output.request.taskTitle.accept(title)
     }
 }

@@ -43,7 +43,7 @@ class EmptyDataSetHandler: EmptyDataSetSource, EmptyDataSetDelegate {
     }
 
     func title(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
-        if scrollView is UICollectionView {
+        if scrollView is UITableView {
             return nil
         }
 

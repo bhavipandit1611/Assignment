@@ -1,7 +1,6 @@
 
 import CoreData
 import EmptyDataSet_Swift
-import PullToRefreshKit
 import RxCocoa
 import RxSwift
 import UIKit
@@ -13,7 +12,6 @@ class BaseController: UIViewController, ErrorHandlerProtocol {
     @IBOutlet var scrollView: UIScrollView?
     var fetchController: NSFetchedResultsController<NSManagedObject>?
     var onAppBecomeActive = PublishSubject<Notification>()
-    var footerLoadMoreView: DefaultRefreshFooter?
     var emptyDataSetHandler: EmptyDataSetHandler?
 
     var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView(style: .medium)

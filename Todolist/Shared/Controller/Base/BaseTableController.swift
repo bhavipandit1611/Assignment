@@ -1,6 +1,5 @@
 import CoreData
 import EmptyDataSet_Swift
-import PullToRefreshKit
 import RxSwift
 import UIKit
 class BaseTableController: BaseController {
@@ -16,21 +15,6 @@ class BaseTableController: BaseController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-
-    func configureLoadmore() {
-        footerLoadMoreView = DefaultRefreshFooter.footer()
-        footerLoadMoreView?.setText("", mode: .pullToRefresh)
-        footerLoadMoreView?.setText("loading", mode: .refreshing)
-        footerLoadMoreView?.setText("", mode: .scrollAndTapToRefresh)
-        footerLoadMoreView?.setText("", mode: .noMoreData)
-
-        tableView.configRefreshFooter(with: footerLoadMoreView!,
-                                      container: self) { [weak self] in
-            guard let self = self else { return }
-            self.tableView.switchRefreshFooter(to: .refreshing)
-            self.onLoadMore.onNext(())
-        }
     }
 
     func configureRefreshData() {

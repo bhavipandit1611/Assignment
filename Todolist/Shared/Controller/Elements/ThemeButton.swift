@@ -100,7 +100,7 @@ class ThemeButton: UIButton, ActivityIndicatorProtocol {
             addShadow()
 
         case let .with(image):
-            layer.cornerRadius = 5
+            layer.cornerRadius = 16
             layer.masksToBounds = true
             setTitleColor(.white, for: .normal)
             backgroundColor = Asset.Colors.plusbg.color
@@ -143,7 +143,7 @@ class ThemeButton: UIButton, ActivityIndicatorProtocol {
             setTitleColor(Asset.Colors.black.color, for: .normal)
             backgroundColor = .white
             layer.borderWidth = 1
-            tintColor = Asset.Colors.black.color
+            tintColor = Asset.Colors.txtTitleLabel.color
             setImage(image, for: .normal)
             layer.borderColor = Asset.Colors.border.color.cgColor
             let valL = 15.0
@@ -151,16 +151,6 @@ class ThemeButton: UIButton, ActivityIndicatorProtocol {
         }
     }
 
-    override func layoutSubviews() {
-        super.layoutSubviews()
-
-        switch type {
-        case .with:
-            layer.cornerRadius = bounds.height / 2
-        default:
-            break
-        }
-    }
 
     func addShadow() {
         clipsToBounds = true
