@@ -1,0 +1,17 @@
+xcassets:
+  inputs:
+    - Assets/Assets.xcassets
+    - Assets/Colors.xcassets
+  outputs:
+    - templateName: swift4
+      output: Generated/Images.swift
+
+ib:
+  inputs:
+    - Storyboards
+  outputs:
+    - templateName: scenes-swift4
+      output: Generated/Storyboard_scene.swift
+    - templateName: segues-swift4
+      output: Generated/Storyboard_segue.swift
+
