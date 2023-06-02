@@ -28,6 +28,10 @@ internal enum StoryboardScene {
 
     internal static let initialScene = InitialSceneType<Todolist.CustomNavigationController>(storyboard: Tasks.self)
 
+    internal static let sidAddTask = SceneType<Todolist.AddTaskViewC>(storyboard: Tasks.self, identifier: "sidAddTask")
+
+    internal static let sidTaskList = SceneType<Todolist.TodoListViewC>(storyboard: Tasks.self, identifier: "sidTaskList")
+
     internal static let sidTaskNav = SceneType<Todolist.CustomNavigationController>(storyboard: Tasks.self, identifier: "sidTaskNav")
   }
 }

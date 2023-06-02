@@ -1,15 +1,20 @@
 import UIKit
 
 open class CustomNavigationController: UINavigationController {
+    override open func viewDidLoad() {
+        super.viewDidLoad()
+        overrideUserInterfaceStyle = .light
+    }
 
-    open override var preferredStatusBarStyle: UIStatusBarStyle {
+    override open var preferredStatusBarStyle: UIStatusBarStyle {
         return .darkContent
     }
-    open override var shouldAutorotate: Bool {
+
+    override open var shouldAutorotate: Bool {
         return true
     }
-    open override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
 
+    override open var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return [UIInterfaceOrientationMask.portraitUpsideDown, UIInterfaceOrientationMask.portrait]
     }
 }

@@ -80,6 +80,7 @@ extension LoginViewC: BasicSetupType {
 
         btnLogin.rx.tap.subscribe(onNext: { [weak self] _ in
             guard let self = self else { return }
+            view.endEditing(true)
             viewModel.input.login()
         }).disposed(by: disposeBag)
 

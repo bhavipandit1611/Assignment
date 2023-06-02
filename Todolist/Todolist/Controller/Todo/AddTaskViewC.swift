@@ -29,6 +29,12 @@ class AddTaskViewC: BaseController {
         setUpViews()
         bindData()
     }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        view.endEditing(true)
+        taskAdded.onNext(true)
+    }
 }
 
 extension AddTaskViewC: BasicSetupType {
@@ -94,6 +100,7 @@ extension AddTaskViewC: BasicSetupType {
 
         btnAdd.rx.tap.subscribe(onNext: { [weak self] _ in
             guard let self = self else { return }
+            view.endEditing(true)
             if operation == .add {
                 viewModel.input.addTask()
             } else {
@@ -104,10 +111,13 @@ extension AddTaskViewC: BasicSetupType {
         btnDatePicker.rx.tap.subscribe(onNext: { [weak self] _ in
             guard let self = self else { return }
             self.dateView.isHidden = !self.dateView.isHidden
+            self.handleDateSelection()
         }).disposed(by: disposeBag)
 
         btnCancel.rx.tap.subscribe(onNext: { [weak self] _ in
             guard let self = self else { return }
+            view.endEditing(true)
+            self.taskAdded.onNext(true)
             self.backClick(nil)
         }).disposed(by: disposeBag)
 
@@ -127,11 +137,10 @@ extension AddTaskViewC: BasicSetupType {
 
 extension AddTaskViewC {
     @objc func handleDateSelection() {
-        txtDateTime.text = datepicker.date.toString(format: DateFormat.half_month_date_time_ampm_format)
+        txtDateTime.text = datepicker.date.toString(format: DateFormat.month_date_time_ampm_format)
         if let val = datepicker.date.toString(format: DateFormat.month_date_time_ampm_format) {
             viewModel.output.request.dateTime.accept(val)
         }
-        view.endEditing(true)
     }
 
     func setupData() {

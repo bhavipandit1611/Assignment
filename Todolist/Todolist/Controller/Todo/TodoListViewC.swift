@@ -175,7 +175,6 @@ extension TodoListViewC: UITableViewDataSource {
 
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey: Any]?, context: UnsafeMutableRawPointer?) {
         if keyPath == "contentSize", object is UITableView, let newValue = change?[.newKey], let newSize = newValue as? CGSize {
-            print("Observable ::: \(newSize.height)  > \(height)")
             if let isEmpty = fetchController?.fetchedObjects?.isEmpty, isEmpty {
                 emptyDataSetHandler?.setUpEmptyData()
                 bottomConstraint.constant = 70

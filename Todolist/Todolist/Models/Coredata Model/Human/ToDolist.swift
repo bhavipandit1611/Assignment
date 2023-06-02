@@ -11,7 +11,6 @@ open class ToDolist: _ToDolist {
 
     var isExceed: Bool {
         if let task_end_date = task_end_date, let strDate = Date().toString(format: DateFormat.month_date_time_ampm_format), let currentDate = Date(detectFromString: strDate) {
-            print("Str date : \(task_end_date) ::: Date Vale : \(strDate) ::: currentDate :: \(currentDate) ")
             if task_end_date < currentDate {
                 return true
             }

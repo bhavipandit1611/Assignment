@@ -86,14 +86,20 @@
 		3F8F38322A28765100842786 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 3F8F38312A28765100842786 /* RxSwift */; };
 		3F8F38372A28768400842786 /* RxKeyboard in Frameworks */ = {isa = PBXBuildFile; productRef = 3F8F38362A28768400842786 /* RxKeyboard */; };
 		3F8F383A2A28769000842786 /* RxGesture in Frameworks */ = {isa = PBXBuildFile; productRef = 3F8F38392A28769000842786 /* RxGesture */; };
-		3F8F38412A28770D00842786 /* NVActivityIndicatorView in Frameworks */ = {isa = PBXBuildFile; productRef = 3F8F38402A28770D00842786 /* NVActivityIndicatorView */; };
-		3F8F38432A28770D00842786 /* NVActivityIndicatorViewExtended in Frameworks */ = {isa = PBXBuildFile; productRef = 3F8F38422A28770D00842786 /* NVActivityIndicatorViewExtended */; };
 		3F8F38462A28773D00842786 /* DateHelper in Frameworks */ = {isa = PBXBuildFile; productRef = 3F8F38452A28773D00842786 /* DateHelper */; };
 		3F8F38492A28774A00842786 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 3F8F38482A28774A00842786 /* SwiftyJSON */; };
 		3F8F38502A287B8B00842786 /* EmptyDataSet-Swift in Resources */ = {isa = PBXBuildFile; fileRef = 3F8F384D2A287B8B00842786 /* EmptyDataSet-Swift */; };
 		3F8F38582A287C2F00842786 /* Todolist.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3F8F38562A287C2F00842786 /* Todolist.xcdatamodeld */; };
 		3F960E832A29D7C800E32F11 /* CustomAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F960E812A29D7C800E32F11 /* CustomAlertController.swift */; };
 		3F960E842A29D7C800E32F11 /* CustomAlertController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F960E822A29D7C800E32F11 /* CustomAlertController.xib */; };
+		3F960E862A2A0A9900E32F11 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 3F960E852A2A0A9900E32F11 /* RxCocoa */; };
+		3F960E882A2A0A9900E32F11 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 3F960E872A2A0A9900E32F11 /* RxRelay */; };
+		3F960E8A2A2A0A9900E32F11 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 3F960E892A2A0A9900E32F11 /* RxSwift */; };
+		3F960E8C2A2A0A9900E32F11 /* RxKeyboard in Frameworks */ = {isa = PBXBuildFile; productRef = 3F960E8B2A2A0A9900E32F11 /* RxKeyboard */; };
+		3F960E8E2A2A0A9900E32F11 /* RxGesture in Frameworks */ = {isa = PBXBuildFile; productRef = 3F960E8D2A2A0A9900E32F11 /* RxGesture */; };
+		3F960E922A2A0C6000E32F11 /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = 3F960E912A2A0C6000E32F11 /* Nimble */; };
+		3F960E952A2A0DDC00E32F11 /* LoginTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F960E942A2A0DDC00E32F11 /* LoginTest.swift */; };
+		3F960E982A2A18AE00E32F11 /* AddTodoTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F960E972A2A18AE00E32F11 /* AddTodoTest.swift */; };
 		9205FEB4816497C91DF42B39 /* Pods_Todolist.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4035CE51FA728BD92AAB0309 /* Pods_Todolist.framework */; };
 /* End PBXBuildFile section */
 
@@ -180,6 +186,9 @@
 		3F8F38572A287C2F00842786 /* Todolist.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Todolist.xcdatamodel; sourceTree = "<group>"; };
 		3F960E812A29D7C800E32F11 /* CustomAlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAlertController.swift; sourceTree = "<group>"; };
 		3F960E822A29D7C800E32F11 /* CustomAlertController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomAlertController.xib; sourceTree = "<group>"; };
+		3F960E942A2A0DDC00E32F11 /* LoginTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTest.swift; sourceTree = "<group>"; };
+		3F960E962A2A0FDF00E32F11 /* TestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = TestPlan.xctestplan; sourceTree = "<group>"; };
+		3F960E972A2A18AE00E32F11 /* AddTodoTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTodoTest.swift; sourceTree = "<group>"; };
 		4035CE51FA728BD92AAB0309 /* Pods_Todolist.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Todolist.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5883BDE36D027DD524ECBCD7 /* Pods-TodolistTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodolistTests.debug.xcconfig"; path = "Target Support Files/Pods-TodolistTests/Pods-TodolistTests.debug.xcconfig"; sourceTree = "<group>"; };
 		6545960D76A8C7F2F23427E9 /* Pods-TodolistTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodolistTests.release.xcconfig"; path = "Target Support Files/Pods-TodolistTests/Pods-TodolistTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -195,8 +204,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3F8F38432A28770D00842786 /* NVActivityIndicatorViewExtended in Frameworks */,
-				3F8F38412A28770D00842786 /* NVActivityIndicatorView in Frameworks */,
 				3F8F38372A28768400842786 /* RxKeyboard in Frameworks */,
 				3F8F38492A28774A00842786 /* SwiftyJSON in Frameworks */,
 				3F8F38302A28765100842786 /* RxRelay in Frameworks */,
@@ -214,7 +221,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F960E882A2A0A9900E32F11 /* RxRelay in Frameworks */,
+				3F960E922A2A0C6000E32F11 /* Nimble in Frameworks */,
+				3F960E862A2A0A9900E32F11 /* RxCocoa in Frameworks */,
+				3F960E8A2A2A0A9900E32F11 /* RxSwift in Frameworks */,
 				12CDF67B5381879106EE89FB /* Pods_TodolistTests.framework in Frameworks */,
+				3F960E8E2A2A0A9900E32F11 /* RxGesture in Frameworks */,
+				3F960E8C2A2A0A9900E32F11 /* RxKeyboard in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,7 +317,10 @@
 		3F8F37A22A28615700842786 /* TodolistTests */ = {
 			isa = PBXGroup;
 			children = (
+				3F960E942A2A0DDC00E32F11 /* LoginTest.swift */,
+				3F960E972A2A18AE00E32F11 /* AddTodoTest.swift */,
 				3F8F37A32A28615700842786 /* TodolistTests.swift */,
+				3F960E962A2A0FDF00E32F11 /* TestPlan.xctestplan */,
 			);
 			path = TodolistTests;
 			sourceTree = "<group>";
@@ -605,8 +621,6 @@
 				3F8F38312A28765100842786 /* RxSwift */,
 				3F8F38362A28768400842786 /* RxKeyboard */,
 				3F8F38392A28769000842786 /* RxGesture */,
-				3F8F38402A28770D00842786 /* NVActivityIndicatorView */,
-				3F8F38422A28770D00842786 /* NVActivityIndicatorViewExtended */,
 				3F8F38452A28773D00842786 /* DateHelper */,
 				3F8F38482A28774A00842786 /* SwiftyJSON */,
 				3F26E4722A288BE00062216F /* EmptyDataSet_Swift */,
@@ -631,6 +645,14 @@
 				3F8F37A12A28615700842786 /* PBXTargetDependency */,
 			);
 			name = TodolistTests;
+			packageProductDependencies = (
+				3F960E852A2A0A9900E32F11 /* RxCocoa */,
+				3F960E872A2A0A9900E32F11 /* RxRelay */,
+				3F960E892A2A0A9900E32F11 /* RxSwift */,
+				3F960E8B2A2A0A9900E32F11 /* RxKeyboard */,
+				3F960E8D2A2A0A9900E32F11 /* RxGesture */,
+				3F960E912A2A0C6000E32F11 /* Nimble */,
+			);
 			productName = TodolistTests;
 			productReference = 3F8F379F2A28615700842786 /* TodolistTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -694,10 +716,10 @@
 				3F8F382A2A28765000842786 /* XCRemoteSwiftPackageReference "RxSwift" */,
 				3F8F38352A28768400842786 /* XCRemoteSwiftPackageReference "RxKeyboard" */,
 				3F8F38382A28769000842786 /* XCRemoteSwiftPackageReference "RxGesture" */,
-				3F8F383F2A28770C00842786 /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */,
 				3F8F38442A28773D00842786 /* XCRemoteSwiftPackageReference "DateHelper" */,
 				3F8F38472A28774A00842786 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 				3F26E4912A28B5970062216F /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
+				3F960E902A2A0C6000E32F11 /* XCRemoteSwiftPackageReference "Nimble" */,
 			);
 			productRefGroup = 3F8F378A2A28615600842786 /* Products */;
 			projectDirPath = "";
@@ -942,6 +964,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F8F37A42A28615700842786 /* TodolistTests.swift in Sources */,
+				3F960E952A2A0DDC00E32F11 /* LoginTest.swift in Sources */,
+				3F960E982A2A18AE00E32F11 /* AddTodoTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1181,13 +1205,16 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = XZ8B9Y7W4B;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mobillor.TodolistTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Todolist.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Todolist";
 			};
 			name = Debug;
@@ -1202,13 +1229,16 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = XZ8B9Y7W4B;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mobillor.TodolistTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Todolist.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Todolist";
 			};
 			name = Release;
@@ -1352,14 +1382,6 @@
 				minimumVersion = 4.0.0;
 			};
 		};
-		3F8F383F2A28770C00842786 /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/ninjaprox/NVActivityIndicatorView";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.0;
-			};
-		};
 		3F8F38442A28773D00842786 /* XCRemoteSwiftPackageReference "DateHelper" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/melvitax/DateHelper.git";
@@ -1374,6 +1396,14 @@
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 5.0.0;
+			};
+		};
+		3F960E902A2A0C6000E32F11 /* XCRemoteSwiftPackageReference "Nimble" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Quick/Nimble.git";
+			requirement = {
+				branch = main;
+				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -1413,16 +1443,6 @@
 			package = 3F8F38382A28769000842786 /* XCRemoteSwiftPackageReference "RxGesture" */;
 			productName = RxGesture;
 		};
-		3F8F38402A28770D00842786 /* NVActivityIndicatorView */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 3F8F383F2A28770C00842786 /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */;
-			productName = NVActivityIndicatorView;
-		};
-		3F8F38422A28770D00842786 /* NVActivityIndicatorViewExtended */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 3F8F383F2A28770C00842786 /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */;
-			productName = NVActivityIndicatorViewExtended;
-		};
 		3F8F38452A28773D00842786 /* DateHelper */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 3F8F38442A28773D00842786 /* XCRemoteSwiftPackageReference "DateHelper" */;
@@ -1432,6 +1452,36 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 3F8F38472A28774A00842786 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
 			productName = SwiftyJSON;
+		};
+		3F960E852A2A0A9900E32F11 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3F8F382A2A28765000842786 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		3F960E872A2A0A9900E32F11 /* RxRelay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3F8F382A2A28765000842786 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxRelay;
+		};
+		3F960E892A2A0A9900E32F11 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3F8F382A2A28765000842786 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+		3F960E8B2A2A0A9900E32F11 /* RxKeyboard */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3F8F38352A28768400842786 /* XCRemoteSwiftPackageReference "RxKeyboard" */;
+			productName = RxKeyboard;
+		};
+		3F960E8D2A2A0A9900E32F11 /* RxGesture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3F8F38382A28769000842786 /* XCRemoteSwiftPackageReference "RxGesture" */;
+			productName = RxGesture;
+		};
+		3F960E912A2A0C6000E32F11 /* Nimble */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3F960E902A2A0C6000E32F11 /* XCRemoteSwiftPackageReference "Nimble" */;
+			productName = Nimble;
 		};
 /* End XCSwiftPackageProductDependency section */
 

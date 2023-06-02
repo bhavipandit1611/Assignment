@@ -4,7 +4,7 @@
         <attribute name="task_created_date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="task_end_date" optional="YES" attributeType="Date" usesScalarValueType="NO">
             <userInfo>
-                <entry key="dateFormat" value="MM-dd-yyyy hh:mm a"/>
+                <entry key="dateFormat" value="dd-MM-yyyy hh:mm a"/>
             </userInfo>
         </attribute>
         <attribute name="task_id" optional="YES" attributeType="String"/>
